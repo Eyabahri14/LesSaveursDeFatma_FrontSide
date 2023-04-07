@@ -1,0 +1,58 @@
+<app-user-nav></app-user-nav>
+<div *ngIf="loading; then thenBlock else myelseBlock"></div>
+<ng-template #thenBlock>
+  <app-loading></app-loading>
+</ng-template>
+<ng-template #myelseBlock>
+  <div class="page-wrapper bg-dark p-t-10 p-b-50">
+    <div class="wrapper wrapper--w900">
+      <div class="card card-6">
+        <div class="card-heading">
+          <h2 class="title">Edit Profile</h2>
+        </div>
+        <!-- (ngSubmit)="onSubmit(f)" -->
+        <form [formGroup]="userProfile" (ngSubmit)="onSubmit()">
+          <div class="card-body">
+
+            <div class="form-row">
+              <div class="name">Email</div>
+              <div class="value">
+                <input class="input--style-6" autocomplete="off" spellcheck="false" type="email" name="email"
+                    formControlName="email"  [(ngModel)]="email"   >
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="name">Name</div>
+              <div class="value">
+
+                <input class="input--style-6" type="text" autocomplete="off" spellcheck="false" name="name"
+                       formControlName="name" [(ngModel)]="name" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Contact no</div>
+              <div class="value">
+
+                <input class="input--style-6" type="text" autocomplete="off" spellcheck="false"
+                        name="contact" formControlName="contact" [(ngModel)]="contact" required>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div class="card-footer">
+            <button class="btn btn--radius-2 btn--blue-2"  type="submit">Update Profile</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+
+</ng-template>

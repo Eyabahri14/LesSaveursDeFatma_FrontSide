@@ -1,0 +1,85 @@
+<app-indexnavbar></app-indexnavbar>
+<div class="containerr" xmlns="http://www.w3.org/1999/html">
+
+
+  <div class="forms-container">
+    <div class="signin-signup">
+
+
+      <!-- signin -->
+
+      <form  [formGroup]="userLogin" class="sign-in-form">
+        <h2 class="title">Sign in</h2>
+        <div class="input-field">
+          <i class="fas fa-envelope"></i>
+          <input   formControlName="email"   type="text" placeholder="Email" name="email"  />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input   formControlName="password"    type="password" placeholder="Password" name="p"   />
+
+        </div>
+        <input type="submit"   (click)="login()"  value="Login" class="btn solid" />
+
+        <p class="social-text" class="pp" style="font-weight: bold;"><a routerLinkActive="active "[routerLink]="['/reset']">Forgot password?</a></p>
+        <p class="social-text" style="color: red;font-weight: bold;font-size: 20px;" *ngIf="avail">{{msg}}</p>
+
+      </form>
+      <!-- signup -->
+
+      <form  [formGroup]="userRegister" class="sign-up-form">
+        <h2 class="title">Sign Up</h2>
+        <div class="input-field">
+          <i class="fas fa-envelope"></i>
+          <input   formControlName="name"   type="text" placeholder="name" name="name"  />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input   formControlName="email"    type="email" placeholder="email" name="email"   />
+
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input   formControlName="contact"  type="text" placeholder="contact" name="contact"   />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input   formControlName="password"    type="password" placeholder="password" name="p"   />
+
+        </div>
+        <input type="submit"   (click)="Register()"  value="Register" class="btn solid" />
+
+
+      </form>
+    </div>
+  </div>
+
+  <div class="panels-container">
+
+    <div class="panel left-panel">
+      <div class="content">
+        <h3  class="pp">New User ?</h3>
+        <br>
+        <button class="btn transparent" id="sign-up-btn" >
+          Sign up
+        </button>
+      </div>
+      <img src="assets/img/r.svg" class="image" alt="" />
+    </div>
+    <div class="panel right-panel">
+      <div class="content">
+        <h3 class="pp">One of us ?</h3>
+        <br>
+        <button class="btn transparent" id="sign-in-btn" (click)="signinup()">
+          Sign in
+        </button>
+      </div>
+      <img src="assets/img/l.svg" class="image" alt="" />
+    </div>
+
+
+
+
+</div>
+</div>
+
