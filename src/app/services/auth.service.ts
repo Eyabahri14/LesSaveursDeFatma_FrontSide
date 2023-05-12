@@ -11,7 +11,6 @@ export class AuthService {
   public avail: boolean = false;
   public msg: string = "";
   public count :any;
-  //private baseUri: string =environment.heroku ? "https://appcanteen.herokuapp.com":"http://localhost:3000";
    private baseUri: string = "http://localhost:3000";
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient, private router: Router) { }
