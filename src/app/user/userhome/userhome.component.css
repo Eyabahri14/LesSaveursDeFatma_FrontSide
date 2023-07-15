@@ -14,6 +14,13 @@
 }
 h3,h2
 {
+
+  font-family:Acme, sans-serif;
+  color: #254053;
+}
+
+h4
+{
   padding-top: 10px;
   font-family:Acme, sans-serif;
   color: #254053;
@@ -230,4 +237,22 @@ h1 {
   display: inline-block;
   border: 3px solid white;
   color: white;
+}
+.footer {
+  /* Ajoutez ici les styles spécifiques pour le footer si nécessaire */
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  flex-basis: 23%;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
 }

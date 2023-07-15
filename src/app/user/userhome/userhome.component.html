@@ -1,26 +1,13 @@
 <app-user-nav></app-user-nav>
-<div ></div>
-
-
-
-
-
 
 <div class="header">
   <h1>Menu</h1>
 </div>
 <ul>
-  <!-- <main> -->
   <section class="cards">
-
-
-
-    <!-- <div > -->
-
-    <div class="crd" *ngFor="let item of fooditems;index as i">
+    <div class="crd" *ngFor="let item of fooditems; index as i">
       <div class="wrapper">
         <div class="containerr">
-          <!-- http://localhost:3000/backend/uploads/1-10-2021-12-31-1-4.jpg -->
           <div class="top"><img src="../../../assets/foodImages/{{item.foodimage}}" alt="No image found"></div>
           <div class="bottom">
             <div class="left">
@@ -28,9 +15,9 @@
                 <h3>{{item.foodname}}</h3>
                 <p>{{item.foodprice}}DT</p>
               </div>
-              <div  *ngIf="item.foodavail">
+              <div *ngIf="item.foodavail">
                 <div style="margin-top:30%">
-                  <i class="material-icons" (click)="addtocart(item)" >add_shopping_cart</i>
+                  <i class="material-icons" (click)="addtocart(item)">add_shopping_cart</i>
                 </div>
               </div>
             </div>
@@ -39,24 +26,53 @@
         <div class="inside">
           <div class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></div>
           <div class="contents">
-            <!-- hellp -->
-            <h2>FoodZone</h2>
-            <h3>item name - {{item.foodname}}</h3>
-            <h3>item price - {{item.foodprice}}DT</h3>
-            <h3 *ngIf="!item.unlimited">
-              <div *ngIf="item.foodavail; else elseBlock">Available Quantity - {{item.foodqty}}</div>
-
+            <div style="margin-top:3%"></div>
+            <h4>Item name - {{item.foodname}}</h4>
+            <h4>Item price - {{item.foodprice}}DT</h4>
+            <h4 *ngIf="!item.unlimited">
+              <ng-container *ngIf="item.foodavail; else elseBlock">
+                Available Quantity - {{item.foodqty}}
+              </ng-container>
               <ng-template #elseBlock>
                 <div>this item is not available</div>
               </ng-template>
-            </h3>
+            </h4>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- </div> -->
-
   </section>
-
 </ul>
+<footer class="footer">
+  <section class="grid">
+    <div class="box">
+      <div class="card">
+        <img src="images/email-icon.png" alt="">
+        <h4>our email</h4>
+        <a href="mailto:eya.bahri@esprit.tn">eya.bahri@esprit.tn</a>
+
+      </div>
+    </div>
+    <div class="box">
+      <div class="card">
+        <img src="images/clock-icon.png" alt="">
+        <h4>opening hours</h4>
+        <p>00:07am to 00:10pm</p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="card">
+        <img src="images/map-icon.png" alt="">
+        <h4>our address</h4>
+        <a href="#">Tunis, Tunisia - 2000</a>
+      </div>
+    </div>
+    <div class="box">
+      <div class="card">
+        <img src="images/phone-icon.png" alt="">
+        <h4>our number</h4>
+        <a href="tel:1234567890">+216 71-456-200</a>
+      </div>
+    </div>
+  </section>
+</footer>

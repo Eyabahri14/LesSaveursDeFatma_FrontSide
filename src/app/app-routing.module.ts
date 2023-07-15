@@ -20,7 +20,7 @@ import {VieworderComponent} from "./user/vieworder/vieworder.component";
 
 // @ts-ignore
 const routes: Routes = [
-  {path: '', redirectTo: 'Login', pathMatch: 'full'},
+  {path: '', redirectTo: 'login-register', pathMatch: 'full'},
 
   // login - register
   { path: 'login-register', component: LoginregisterComponent },
