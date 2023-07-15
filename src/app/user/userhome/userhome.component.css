@@ -238,9 +238,7 @@ h1 {
   border: 3px solid white;
   color: white;
 }
-.footer {
-  /* Ajoutez ici les styles spécifiques pour le footer si nécessaire */
-}
+
 
 .grid {
   display: flex;
@@ -249,10 +247,18 @@ h1 {
 
 .box {
   flex-basis: 23%;
+  margin-bottom: 20px; /* Ajout de marge en dessous des cartes */
 }
 
 .card {
   border: 1px solid black;
   padding: 10px;
   text-align: center;
+}
+
+.card-image {
+  width: 50px; /* Ajustez la taille de l'image selon vos besoins */
+  height: 50px; /* Ajustez la taille de l'image selon vos besoins */
+  display: block;
+  margin: 0 auto; /* Centre l'image horizontalement */
 }
