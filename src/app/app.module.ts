@@ -35,6 +35,8 @@ import {NgxPrintModule} from "ngx-print";
 import {CheckoutModule} from "paytm-blink-checkout-angular";
 import { FeedbackComponent } from './user/feedback/feedback.component';
 import { ViewfeedbackComponent } from './admin/viewfeedback/viewfeedback.component';
+import { OneorderviewComponent } from './admin/oneorderview/oneorderview.component';
+import { QrcodeComponent } from './admin/qrcode/qrcode.component';
 
 
 
@@ -66,6 +68,8 @@ import { ViewfeedbackComponent } from './admin/viewfeedback/viewfeedback.compone
     VieworderComponent,
     FeedbackComponent,
     ViewfeedbackComponent,
+    OneorderviewComponent,
+    QrcodeComponent,
 
   ],
   imports: [

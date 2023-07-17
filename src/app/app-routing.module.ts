@@ -20,6 +20,8 @@ import {VieworderComponent} from "./user/vieworder/vieworder.component";
 import { FeedbackComponent } from './user/feedback/feedback.component';
 import { UserGuard } from './user/user.guard';
 import { ViewfeedbackComponent } from './admin/viewfeedback/viewfeedback.component';
+import {OneorderviewComponent} from "./admin/oneorderview/oneorderview.component";
+import {QrcodeComponent} from "./admin/qrcode/qrcode.component";
 
 
 // @ts-ignore
@@ -40,6 +42,10 @@ const routes: Routes = [
   {path: 'admin/addfoodqty', component: AddfoodqtyComponent, canActivate: [AdminGuard]},
   {path: 'admin/viewusers', component: ViewCustomersComponent, canActivate: [AdminGuard]},
   { path: 'admin/viewfeeback', component: ViewfeedbackComponent, canActivate: [AdminGuard] },
+  { path: 'admin/vieworder', component: OneorderviewComponent, canActivate: [AdminGuard] },
+  { path: 'admin/qrcode', component: QrcodeComponent, canActivate: [AdminGuard] },
+
+
 
   //user
 
