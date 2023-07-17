@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
-import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-cart',
@@ -12,13 +11,13 @@ import {NgToastService} from "ng-angular-popup";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  items: any=[];
+  items: any[]=[];
   total: any;
-  arr: any =[];
+  arr: any = {};
   public errorMessage: any;
   public styl: any;
   public loading:any= true;
-  constructor(private router: Router, private authService: AuthService, private userService: UserService, private webSocketService: WebsocketService,private toast:NgToastService) { }
+  constructor(private router: Router, private authService: AuthService, private userService: UserService, private webSocketService: WebsocketService) { }
 
   ngOnInit(): void {
     if (this.authService.getCount() == 0) {
@@ -39,19 +38,18 @@ export class CartComponent implements OnInit {
 
   getdata() {
     this.userService.getcart().subscribe(
-      data => {
+      (data:any) => {
         // //console.log(data);
-        if((data as {[key: string]: any})['errormsg']){
-          this.setMessage(((data as {[key: string]: any})['errormsg']), "#f04747");
+        if (data['errormsg']) {
+          this.setMessage(data['errormsg'], "#f04747");
         }
-        if ( ((data as {[key: string]: any})['empty']) == true) {
+        if (data['empty'] == true) {
           this.authService.setCount(0);
           this.router.navigate(['/empty-cart']);
         }
         else {
           this.loading = false
           //console.log(data);
-          // @ts-ignore
           this.arr = data[0];
           //console.log(this.arr);
           if (this.arr == undefined) {
@@ -95,7 +93,7 @@ export class CartComponent implements OnInit {
     )
   }
 
-  delete(item: any) {
+  delete(item :any) :void {
     //console.log("delte");
     //console.log(item);
     this.loading = true
@@ -118,6 +116,7 @@ export class CartComponent implements OnInit {
 
 
 
+
   setMessage(msg: any, color: any) {
     this.errorMessage = msg;
     this.styl = {
@@ -127,16 +126,15 @@ export class CartComponent implements OnInit {
       this.errorMessage = null;
     }, 4000);
   }
-/*
+
   placeorder() {
     //console.log("place order");
     this.userService.placeOrder({}).subscribe(
-      data => {
-        console.log(data)
-        if ((data as {[key: string]: any})['errormsg']){
-          this.setMessage(((data as {[key: string]: any})['errormsg']), "#f04747");
+      ( data:any) => {
+        if (data['errormsg']) {
+          this.setMessage(data['errormsg'], "#f04747");
         }
-        if ((data as {[key: string]: any})['msg']) {
+        if (data['msg']) {
           // this.setMessage(data['msg'], "#43b581");
           this.authService.setMessage("successfully order placed", "green");
           this.router.navigate(['/myorders'])
@@ -150,27 +148,4 @@ export class CartComponent implements OnInit {
       }
     )
   }
-  */
-
-  checkout()
-  {
-
-    this.userService.deletecart().subscribe(
-      data => {
-
-        if(((data as {[key: string]: any})['msg'])=="order placed")
-        {
-
-          this.toast.success({detail :"Succes Message",summary :"sucessfully order place"})
-          this.authService.avail=true;
-          this.router.navigate(['/userhome'])
-        }
-      },
-      error => {
-        console.log(error);
-      }
-    )
-  }
-
-
 }

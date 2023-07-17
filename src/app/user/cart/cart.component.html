@@ -23,6 +23,7 @@
             <th scope="row">{{i+1}}</th>
             <td class="w-25">
               <img src="../../../assets/foodImages/{{item.foodimage}}" class="img-fluid img-thumbnail" alt="No image found">
+
             </td>
             <td>{{item.foodname}}</td>
             <td>
@@ -52,12 +53,14 @@
           <!-- <p style="margin-top: 5px;margin-bottom: 5px;">tax = <b><span>2</span>Rs</b></p> -->
           <p style="margin-top: 5px;margin-bottom: 5px;">grand total =<b><span class="gt">{{total}}</span>DT</b></p>
           <button class="btn btn-success" id="last" style="margin-top: 5px;margin-bottom: 5px;"
-                  (click)="checkout()"    style="color: white;">Check out</button>
+                  (click)="placeorder()" style="color: white;">Check out</button>
         </div>
       </div>
 
     </div>
 
   </div>
-
+  <div class="errors" *ngIf="errorMessage">
+    <app-message-box [message]="errorMessage" [styl]="styl"></app-message-box>
+  </div>
 </ng-template>

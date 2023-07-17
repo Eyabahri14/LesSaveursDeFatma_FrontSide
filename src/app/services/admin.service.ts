@@ -110,4 +110,30 @@ export class AdminService {
   {
     return this.http.post(environment.api + "/updatepaymentstatus", body);
   }
+
+  getAllfeedback()
+  {
+    return this.http.get(environment.api + "/getallfeedback", { headers: this.headers });
+  }
+
+  deleteFeedback(id :any)
+  {
+    return this.http.delete(environment.api + "/deletefeedback/" + id, { headers: this.headers });
+  }
+
+  setQrcode(id:any)
+  {
+    this.qrcode = id;
+  }
+
+  getQrcode()
+  {
+    return this.qrcode;
+  }
+
+  generateQrcode(id :any)
+  {
+    return this.http.get(environment.api + "/getqrcode/" + id, { headers: this.headers });
+  }
+
 }

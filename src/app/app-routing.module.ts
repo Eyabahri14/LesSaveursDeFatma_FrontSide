@@ -17,6 +17,10 @@ import {EditprofileComponent} from "./user/editprofile/editprofile.component";
 import {CartComponent} from "./user/cart/cart.component";
 import {MyordersComponent} from "./user/myorders/myorders.component";
 import {VieworderComponent} from "./user/vieworder/vieworder.component";
+import { FeedbackComponent } from './user/feedback/feedback.component';
+import { UserGuard } from './user/user.guard';
+import { ViewfeedbackComponent } from './admin/viewfeedback/viewfeedback.component';
+
 
 // @ts-ignore
 const routes: Routes = [
@@ -29,20 +33,24 @@ const routes: Routes = [
   { path: 'reset-password-done', component: ResetPasswordDoneComponent },
 
   //admin
-  { path: 'admin/adminhome', component: AdminhomeComponent},
-  { path: 'admin/addfood', component: AddfoodComponent},
-  { path: 'admin/seefood', component: SeefoodComponent},
-  { path: 'admin/editfood', component: EditfoodComponent },
-  {path: 'admin/addfoodqty', component: AddfoodqtyComponent},
-  {path: 'admin/viewusers', component: ViewCustomersComponent},
+  { path: 'admin/adminhome', component: AdminhomeComponent, canActivate: [AdminGuard] },
+  { path: 'admin/addfood', component: AddfoodComponent, canActivate: [AdminGuard]},
+  { path: 'admin/seefood', component: SeefoodComponent, canActivate: [AdminGuard]},
+  { path: 'admin/editfood', component: EditfoodComponent, canActivate: [AdminGuard] },
+  {path: 'admin/addfoodqty', component: AddfoodqtyComponent, canActivate: [AdminGuard]},
+  {path: 'admin/viewusers', component: ViewCustomersComponent, canActivate: [AdminGuard]},
+  { path: 'admin/viewfeeback', component: ViewfeedbackComponent, canActivate: [AdminGuard] },
+
   //user
 
-  { path: 'userhome', component: UserhomeComponent },
-  { path: 'myprofile', component: MyprofileComponent },
-  { path: 'editprofile', component: EditprofileComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'myorders', component: MyordersComponent},
-  { path: 'vieworder', component: VieworderComponent}
+  { path: 'userhome', component: UserhomeComponent, canActivate: [UserGuard]  },
+  { path: 'myprofile', component: MyprofileComponent, canActivate: [UserGuard]  },
+  { path: 'editprofile', component: EditprofileComponent, canActivate: [UserGuard]  },
+  { path: 'cart', component: CartComponent , canActivate: [UserGuard] },
+  { path: 'myorders', component: MyordersComponent, canActivate: [UserGuard] },
+  { path: 'vieworder', component: VieworderComponent, canActivate: [UserGuard] },
+  { path: 'feedback', component: FeedbackComponent, canActivate: [UserGuard] },
+
 ];
 
 @NgModule({

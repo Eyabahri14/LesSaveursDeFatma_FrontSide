@@ -98,5 +98,12 @@ export class UserService {
     return this.http.post<any>(url,{token:stripeToken})
   }
 
+  feedback(body: any) {
+    return this.http.post(environment.api + "/sendfeedback", body, {
+      observe: 'body',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    });
+  }
+
 
   }

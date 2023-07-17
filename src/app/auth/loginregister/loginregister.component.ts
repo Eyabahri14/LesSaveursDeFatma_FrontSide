@@ -53,33 +53,30 @@ export class LoginregisterComponent implements OnInit {
     if (this.userLogin.valid) {
       this.authService.login(this.userLogin.value).subscribe(
         data => {
-          localStorage.setItem('token', ((data as {[key: string]: any})['token']));
+          localStorage.setItem('token', (data as { [key: string]: any })['token']);
           console.log(data);
-          this.router.navigate(['/userhome']);
 
-
-          if ((data as {[key: string]: any})['role'] == 'admin'){
-
+          if ((data as { [key: string]: any })['role'] == 'admin') {
+            localStorage.setItem('admin', 'yes');
+            localStorage.setItem('user', 'no');
             this.router.navigate(['/admin/adminhome']);
+          } else {
+            localStorage.setItem('admin', 'no');
+            localStorage.setItem('user', 'yes');
+            this.router.navigate(['/userhome']);
           }
 
-            if ((data as {[key: string]: any})['blocked'] == true) {
-
-              alert("You are blocked by Admin wait until admin unblock you!!!")
-              this.avail = true;
-              return;
-            }
-
-
-
-
+          if ((data as { [key: string]: any })['blocked'] == true) {
+            alert("You are blocked by Admin. Please wait until admin unblocks you!");
+            this.avail = true;
+            return;
+          }
         },
-
         error => {
+          console.error(error);
         }
       );
     }
-
   }
 
 

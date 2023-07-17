@@ -33,6 +33,9 @@ import { MyordersComponent } from './user/myorders/myorders.component';
 import { VieworderComponent } from './user/vieworder/vieworder.component';
 import {NgxPrintModule} from "ngx-print";
 import {CheckoutModule} from "paytm-blink-checkout-angular";
+import { FeedbackComponent } from './user/feedback/feedback.component';
+import { ViewfeedbackComponent } from './admin/viewfeedback/viewfeedback.component';
+
 
 
 
@@ -60,7 +63,10 @@ import {CheckoutModule} from "paytm-blink-checkout-angular";
     EditprofileComponent,
     CartComponent,
     MyordersComponent,
-    VieworderComponent
+    VieworderComponent,
+    FeedbackComponent,
+    ViewfeedbackComponent,
+
   ],
   imports: [
     BrowserModule,
