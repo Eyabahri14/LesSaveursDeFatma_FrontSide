@@ -93,7 +93,7 @@ export class UserService {
     });}
 
   makePayment(stripeToken: any): Observable<any>{
-    const url = "http://localhost:3000/checkout/"
+    const url = "http://api:3000/checkout/"
 
     return this.http.post<any>(url,{token:stripeToken})
   }
