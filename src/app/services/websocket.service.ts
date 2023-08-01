@@ -10,7 +10,7 @@ export class WebsocketService {
   socket: any;
 
 
-   readonly url: string = "http://api:9000";
+   readonly url: string = "http://api:3000";
   constructor() {
     this.socket = io(this.url);
   }
