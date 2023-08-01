@@ -10,8 +10,7 @@ export class WebsocketService {
   socket: any;
 
 
-   readonly url: string = "http://localhost:9000";
-  //readonly url: string = environment.heroku ? "https://appcanteen.herokuapp.com":"http://localhost:3000";
+   readonly url: string = "http://api:9000";
   constructor() {
     this.socket = io(this.url);
   }
