@@ -19,5 +19,16 @@ RUN npm run build
 #-- STAGE 2 : Run
 FROM nginx:alpine
 
+WORKDIR /usr/share/nginx/html
+
+#Remove nginx static assets 
+RUN rm -rf ./*
+
 # Copy the build output from the builder stage to the nginx web server directory
-COPY --from=builder /app/dist/project-food2 /usr/share/nginx/html
+COPY --from=builder /app/dist/project-food2 .
+
+#change permissions to access the working directory
+RUN chown nginx:nginx /usr/share/nginx/html/*
+
+#Containers run nginx with global directives and daemon off 
+CMD ["nginx","-g","daemon off;"]

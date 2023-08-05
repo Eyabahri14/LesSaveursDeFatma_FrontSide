@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../src/environments/environment';
 @Injectable({
@@ -12,7 +12,7 @@ export class AuthService {
   public msg: string = "";
   public count :any;
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, @Inject(Router) private router: Router) { }
 
   register(body: any) {
     return this.http.post(environment.api+'/register', body, {
